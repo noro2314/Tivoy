@@ -9,6 +9,7 @@ namespace DataAccess.Models
         public int Id { get; set; }
         public int CustomerId { get; set; }
         public string NoteText { get; set; }
+        public DateTime AddedDate { get; set; }
         [ForeignKey("CustomerId")]
         public virtual Customer Customer { get; set; }
     }

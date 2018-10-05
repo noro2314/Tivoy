@@ -87,7 +87,17 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="messages" role="tabpanel">
-                         
+                         <div class="row">
+                             <div class="col-md-8">
+                                 <input type="hidden" value="@Model.Id" id="customerId" />
+                                 <textarea class="form-control" id="noteText">
+
+</textarea>
+                             </div>
+                             <div class="col-md-4">
+                                 <button class="btn btn-success" id="addNote">Add</button>
+                             </div>
+                         </div>
                         </div>
                      
                     </div>
@@ -99,3 +109,9 @@
 </div>
 
 
+@section Scripts{ 
+    <script>
+var noteUrl="@Url.Action("AddNote")";
+    </script>
+    
+}

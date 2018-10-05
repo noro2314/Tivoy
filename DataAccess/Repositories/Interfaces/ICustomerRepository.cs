@@ -11,5 +11,6 @@ namespace DataAccess.Repositories.Interfaces
         Task<List<CustomerViewModel>> GetAll();
         Task<CustomerViewModel> GetById(int Id);
         Task Update(CustomerViewModel model);
+        Task AddNote(string text, int userId);
     }
 }

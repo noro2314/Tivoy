@@ -78,5 +78,16 @@ namespace DataAccess.Repositories
                 await DbContext.SaveChangesAsync();
             }
         }
+        public async Task AddNote(string text, int userId)
+        {
+            Note note = new Note
+            {
+                CustomerId = userId,
+                NoteText = text,
+                AddedDate=DateTime.Now
+            };
+            await DbContext.Notes.AddAsync(note);
+            await DbContext.SaveChangesAsync();
+        }
     }
 }
