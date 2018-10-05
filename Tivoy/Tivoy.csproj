@@ -598,7 +598,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\ViewModels\" />
+    <Folder Include="Areas\Identity\Services\" />
+    <Folder Include="Data\Migrations\" />
     <Folder Include="wwwroot\css\material\" />
     <Folder Include="wwwroot\material\vendors\bower_components\jquery-mask-plugin\test\" />
     <Folder Include="wwwroot\material\vendors\bower_components\jqvmap\create\output\" />
@@ -607,6 +608,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\material\img\browsers\index_files\app.min.js" />
+    <None Include="wwwroot\material\img\browsers\index_files\bootstrap.min.js" />
+    <None Include="wwwroot\material\img\browsers\index_files\chart-tooltips.js" />
+    <None Include="wwwroot\material\img\browsers\index_files\curved-line.js" />
+    <None Include="wwwroot\material\img\browsers\index_files\curvedLines.js" />
+    <None Include="wwwroot\material\img\browsers\index_files\jquery.easypiechart.min.js" />
+    <None Include="wwwroot\material\img\browsers\index_files\jquery.flot.js" />
+    <None Include="wwwroot\material\img\browsers\index_files\jquery.flot.resize.js" />
+    <None Include="wwwroot\material\img\browsers\index_files\jquery.min.js" />
+    <None Include="wwwroot\material\img\browsers\index_files\jquery.sparkline.min.js" />
+    <None Include="wwwroot\material\img\browsers\index_files\jquery.vmap.min.js" />
+    <None Include="wwwroot\material\img\browsers\index_files\jquery.vmap.world.js" />
+    <None Include="wwwroot\material\img\browsers\index_files\jqvmap.js" />
+    <None Include="wwwroot\material\img\browsers\index_files\line.js" />
+    <None Include="wwwroot\material\img\browsers\index_files\other-charts.js" />
+    <None Include="wwwroot\material\img\browsers\index_files\salvattore.min.js" />
+    <None Include="wwwroot\material\img\browsers\index_files\tether.min.js" />
     <None Include="wwwroot\material\vendors\bower_components\animate.css\gulpfile.js" />
     <None Include="wwwroot\material\vendors\bower_components\animate.css\LICENSE" />
     <None Include="wwwroot\material\vendors\bower_components\autosize\build.js" />
