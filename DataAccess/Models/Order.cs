@@ -13,5 +13,8 @@ namespace DataAccess.Models
         public virtual Tour Tour { get; set; }
         [ForeignKey("CustomerId")]
         public virtual Customer Customer { get; set; }
+        public DateTimeOffset CreatedDate { get; set; }
+        public string Note { get; set; }
+        public int StatusId { get; set; }
     }
 }
