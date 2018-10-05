@@ -7,6 +7,7 @@ using DataModels;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using DataAccess.Models;
+using X.PagedList;
 
 namespace DataAccess.Repositories
 {
@@ -43,5 +44,24 @@ namespace DataAccess.Repositories
                                 }).ToListAsync();
             return orders;
         }
+        public async Task<IPagedList> GetAllPagedList(int pageNumber, int pageSize, string searchstring = null)
+        {
+            var orders = await (from o in DbContext.Orders
+                                join c in DbContext.Customers on o.CustomerId equals c.Id
+                                where (string.IsNullOrEmpty(searchstring) || o.Id.ToString().Contains(searchstring))
+                                select new OrderViewModel
+                                {
+                                    Id = o.Id,
+                                    CreatedDate = o.CreatedDate,
+                                    CustomerId = o.CustomerId,
+                                    Note = o.Note,
+                                    CustomerName = c.FirstName+" "+ c.LastName,
+                                    StatusId = o.StatusId,
+                                    TourId = o.TourId,
+                                    TourName = o.TourId.HasValue ? o.Tour.Name : "",
+                                }).ToPagedListAsync(pageNumber, pageSize);
+            return orders;
+        }
+
     }
 }
