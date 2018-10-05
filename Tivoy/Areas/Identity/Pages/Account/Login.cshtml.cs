@@ -9,7 +9,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using Tivoy.Models;
+
+using DataAccess.Models;
 
 namespace Tivoy.Areas.Identity.Pages.Account
 {
@@ -68,7 +69,7 @@ namespace Tivoy.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
-            returnUrl = returnUrl ?? Url.Content("~/");
+            returnUrl = returnUrl ?? Url.Action("Index",new {area="",controller="Customer",action="Index" });
 
             if (ModelState.IsValid)
             {

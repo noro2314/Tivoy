@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Tivoy.Data;
 using Tivoy.Models;
 
 [assembly: HostingStartup(typeof(Tivoy.Areas.Identity.IdentityHostingStartup))]
