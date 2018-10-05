@@ -62,5 +62,12 @@ namespace Tivoy.Controllers
             var model = await UnitOfWork.CustomerRepository.GetById(Id);
             return View(model);
         }
+
+        
+        public async Task<JsonResult> AddNote(NoteViewModel model)
+        {
+            await UnitOfWork.CustomerRepository.AddNote(model.Text, model.UserId);
+            return Json(new {success=true });
+        }
     }
 }
