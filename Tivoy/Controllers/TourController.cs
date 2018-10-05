@@ -8,7 +8,7 @@ namespace Tivoy.Controllers
 {
     public class TourController : Controller
     {
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             return View();
         }

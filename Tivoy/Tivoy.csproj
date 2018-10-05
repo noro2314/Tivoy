@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.cs" />
-    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="wwwroot\material\vendors\bower_components\animate.css\animate-config.json" />
     <Content Include="wwwroot\material\vendors\bower_components\animate.css\animate.css" />
     <Content Include="wwwroot\material\vendors\bower_components\animate.css\animate.min.css" />
@@ -4992,6 +4987,11 @@
     <None Include="wwwroot\material\vendors\bower_components\Waves\src\sass\waves.sass" />
     <None Include="wwwroot\material\vendors\bower_components\Waves\src\scss\waves.scss" />
     <None Include="wwwroot\material\vendors\bower_components\Waves\src\stylus\waves.styl" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+    <ProjectReference Include="..\DataModels\DataModels.csproj" />
   </ItemGroup>
 
   <ItemGroup>
