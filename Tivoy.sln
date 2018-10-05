@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModels", "DataModels\DataModels.csproj", "{001146F0-3E18-40E3-9020-CD0CCDCEBD54}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tivoy.Common", "Tivoy.Common\Tivoy.Common.csproj", "{ADC65B9D-135D-4EB3-B563-EC5133A23B07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{001146F0-3E18-40E3-9020-CD0CCDCEBD54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{001146F0-3E18-40E3-9020-CD0CCDCEBD54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{001146F0-3E18-40E3-9020-CD0CCDCEBD54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADC65B9D-135D-4EB3-B563-EC5133A23B07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADC65B9D-135D-4EB3-B563-EC5133A23B07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADC65B9D-135D-4EB3-B563-EC5133A23B07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADC65B9D-135D-4EB3-B563-EC5133A23B07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

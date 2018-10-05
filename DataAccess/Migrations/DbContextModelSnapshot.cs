@@ -76,6 +76,31 @@ namespace DataAccess.Migrations
                     b.ToTable("Hotels");
                 });
 
+            modelBuilder.Entity("DataAccess.Models.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTimeOffset>("CreatedDate");
+
+                    b.Property<int>("CustomerId");
+
+                    b.Property<string>("Note");
+
+                    b.Property<int>("StatusId");
+
+                    b.Property<int?>("TourId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("TourId");
+
+                    b.ToTable("Orders");
+                });
+
             modelBuilder.Entity("DataAccess.Models.Role", b =>
                 {
                     b.Property<int>("Id")
@@ -285,6 +310,18 @@ namespace DataAccess.Migrations
                     b.HasOne("DataAccess.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("DataAccess.Models.Order", b =>
+                {
+                    b.HasOne("DataAccess.Models.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("DataAccess.Models.Tour", "Tour")
+                        .WithMany()
+                        .HasForeignKey("TourId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
