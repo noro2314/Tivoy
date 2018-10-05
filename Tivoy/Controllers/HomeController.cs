@@ -7,14 +7,16 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using DataAccess.Models;
 using Tivoy.Models;
+using DataAccess.Repositories;
 
 namespace Tivoy.Controllers
 {
     public class HomeController : BaseController
     {
         public HomeController(UserManager<User> userManager,
-                               SignInManager<User> signInManager
-                             ) : base(userManager, signInManager)
+                               SignInManager<User> signInManager,
+                               IUnitOfWork unitOfWork
+                             ) : base(userManager, signInManager,unitOfWork)
         {
 
         }
