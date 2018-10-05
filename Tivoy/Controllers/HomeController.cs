@@ -21,7 +21,7 @@ namespace Tivoy.Controllers
         public IActionResult Index()
         {
             var user = new User { UserName = "test@mail.ru", Email = "test@mail.ru",FirstName = "a", LastName = "b" };
-            UserManager.CreateAsync(user);
+            //UserManager.CreateAsync(user);
             return View();
         }
 
