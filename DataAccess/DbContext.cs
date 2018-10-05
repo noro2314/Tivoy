@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace DataAccess
 {
-    public class DbContext:IdentityDbContext<User,Role,int>
+    public class DbContext : IdentityDbContext<User, Role, int>
     {
         public DbContext(DbContextOptions<DbContext> options)
            : base(options)
@@ -34,6 +34,7 @@ namespace DataAccess
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Hotel> Hotels { get; set; }
         public virtual DbSet<Tour> Tours { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
 
         public class DbContextDbFactory : IDesignTimeDbContextFactory<DbContext>
         {
