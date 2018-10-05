@@ -35,7 +35,7 @@ namespace DataAccess
         public virtual DbSet<Hotel> Hotels { get; set; }
         public virtual DbSet<Tour> Tours { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
-
+        public virtual DbSet<Note> Notes { get; set; }
         public class DbContextDbFactory : IDesignTimeDbContextFactory<DbContext>
         {
             DbContext IDesignTimeDbContextFactory<DbContext>.CreateDbContext(string[] args)

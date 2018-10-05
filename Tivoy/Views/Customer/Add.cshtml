@@ -1,6 +1,8 @@
 ﻿@model CustomerViewModel
 @{
     ViewData["Title"] = "Add";
+    bool isEdit = Model.Id > 0;
+    string buttonText = isEdit ? "Update" : "Add";
 }
 <div class="card">
     <div class="card-block">
@@ -41,13 +43,13 @@
             <div class="form-group">
                 <label asp-for="CityId">City</label>
                 <select asp-for="CityId" class="form-control">
-                    <option>Select City</option>
+                    <option>Please select</option>
                     <option value="1">Yerevan</option>
                     <option value="2">Vanadzor</option>
                     <option value="3">Gyumri</option>
                 </select>
             </div>
-            <input type="submit" value="Add" class="btn btn-success" />
+            <input type="submit" value="@buttonText" class="btn btn-success" />
         </form>
     </div>
     

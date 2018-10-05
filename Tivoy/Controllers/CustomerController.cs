@@ -25,15 +25,18 @@ namespace Tivoy.Controllers
             return View(model);
         }
         [HttpGet]
-        public IActionResult Add()
+        public  async Task<IActionResult> Add(int?id)
         {
-            return View();
+            var model = id.HasValue ? await UnitOfWork.CustomerRepository.GetById(id.Value) : new CustomerViewModel();
+            return View(model);
         }
 
         [HttpPost]
         public async Task<IActionResult> Add(CustomerViewModel model)
         {
-            var user = new User
+            if(model.Id==0)
+            {
+ var user = new User
             { UserName = model.Email,
               Email = model.Email,
 
@@ -44,6 +47,12 @@ namespace Tivoy.Controllers
                 model.UserId = user.Id;
                 int newCustomerId= await UnitOfWork.CustomerRepository.Add(model);
                 return RedirectToAction("Profile", new { Id =newCustomerId});
+            }
+            }
+            else
+            {
+                await UnitOfWork.CustomerRepository.Update(model);
+                return RedirectToAction("Profile", new { model.Id });
             }
             return View();
         }

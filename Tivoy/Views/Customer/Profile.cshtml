@@ -2,44 +2,100 @@
 @{
     ViewData["Title"] = "Profile";
 }
-
-<div class="card">
-    <div class="card-block">
-        <div>
-            <span>Full Name:</span> <strong>@Model.FullName</strong>
-        </div>
-        <div>
-            <span>Date of Birth:</span> <strong>@Model.DisplayBirthDate</strong>
-        </div>
-        <div>
-            <span>Gender:</span> <strong>@Model.DisplayGender</strong>
-        </div>
-        <div>
-            <span>City:</span> <strong>@Model.CityName</strong>
-        </div>
-        <div>
-            <span>ID Number</span> <strong>-</strong>
-        </div>
-        <div>
-            <span>Visa Permition</span>
-            @if (Model.ActiveVisa)
-            {
-                <div class="btn-group btn-group--colors">
-                    <label class="custom-control custom-checkbox" title="@Model.VisaDaysLeft">
-                        <input type="checkbox" checked disabled class="custom-control-input" />
-                       
-                        <span class="custom-control-indicator"></span>
-                      
-                    </label>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-block">
+                <h2>Basic Info</h2>
+                <div class="mb-2">
+                    @Model.FullName
                 </div>
-            }
+                <div class="mb-2">
+                    Orders: @Model.OrderCount
+                </div>
+                <div class="mb-2">
+                    E-mail:  @Model.Email
+                </div>
+                <div class="mb-2">
+                    Number:  @Model.PhoneNumber
+                </div>
+                <div class="mb-2">
+                    <a href="#" class="btn btn-success">Add new order</a>
+                </div>
+            </div>
         </div>
-        <div>
-            <span>Phone Number</span> <strong>@Model.PhoneNumber</strong>
+       
+    </div>
+    <div class="col-md-8">
+       
+        <div class="card">
+            <div class="card-block">
+                <div class="tab-container">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#home" role="tab">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Personal Info</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages" role="tab">Notes</a>
+                        </li>
+                     
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active fade show" id="home" role="tabpanel">
+                  
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel">
+                            <div class="card-block">
+                                <div>
+                                    <span>Full Name:</span> <strong>@Model.FullName</strong>
+                                </div>
+                                <div>
+                                    <span>Date of Birth:</span> <strong>@Model.DisplayBirthDate</strong>
+                                </div>
+                                <div>
+                                    <span>Gender:</span> <strong>@Model.DisplayGender</strong>
+                                </div>
+                                <div>
+                                    <span>City:</span> <strong>@Model.CityName</strong>
+                                </div>
+                                <div>
+                                    <span>ID Number</span> <strong>-</strong>
+                                </div>
+                                <div>
+                                    <span>Visa Permition</span>
+                                    @if (Model.ActiveVisa)
+                                    {
+                                        <div class="btn-group btn-group--colors">
+                                            <label class="custom-control custom-checkbox" title="@Model.VisaDaysLeft">
+                                                <input type="checkbox" checked disabled class="custom-control-input" />
+
+                                                <span class="custom-control-indicator"></span>
+
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+                                <div>
+                                    <span>Phone Number</span> <strong>@Model.PhoneNumber</strong>
+                                </div>
+                                <div>
+                                    <span>E-mail</span> <strong>@Model.Email</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="messages" role="tabpanel">
+                         
+                        </div>
+                     
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <span>E-mail</span> <strong>@Model.Email</strong>
-        </div>
+        
     </div>
 </div>
+
 

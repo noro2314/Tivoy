@@ -40,7 +40,8 @@ namespace DataAccess.Repositories
                 LastName = c.LastName,
                 Email = c.User.Email,
                 PhoneNumber = c.PhoneNumber,
-                CityName = c.City.Name,
+                CityName = c.City.Name
+                
                  
             }).ToListAsync();
         }
@@ -57,9 +58,25 @@ namespace DataAccess.Repositories
                     PhoneNumber=c.PhoneNumber,
                     VisaExpiredate=c.VisaExpiredate,
                     CityName=c.City.Name,
-                    Gender=c.Gender
-                    
+                    Gender=c.Gender,
+                    CityId = c.CityId
                 }).FirstOrDefaultAsync();
+        }
+
+        public async Task Update(CustomerViewModel model)
+        {
+            var customer = await DbContext.Customers.FirstOrDefaultAsync(c => c.Id == model.Id);
+            if(customer!=null)
+            {
+                customer.FirstName = model.FirstName;
+                customer.LastName = model.LastName;
+                customer.BirthDate = model.BirthDate;
+                customer.CityId = model.CityId;
+                customer.Gender = model.Gender;
+                customer.PhoneNumber = model.PhoneNumber;
+                DbContext.Entry(customer).State = EntityState.Modified;
+                await DbContext.SaveChangesAsync();
+            }
         }
     }
 }
