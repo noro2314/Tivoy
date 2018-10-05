@@ -12,5 +12,7 @@ namespace DataModels
         public string Note { get; set; }
         public int StatusId { get; set; }
         public int? TourId { get; set; }
+        public string CustomerName { get; set; }
+        public string TourName { get; set; }
     }
 }

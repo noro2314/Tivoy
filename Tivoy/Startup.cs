@@ -41,6 +41,8 @@ namespace Tivoy
 
             services.AddDefaultIdentity<User>()
                 .AddEntityFrameworkStores<DataAccess.DbContext>();
+            services.AddSingleton<IConfiguration>(Configuration);
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddTransient<IUnitOfWork, UnitOfWork>();

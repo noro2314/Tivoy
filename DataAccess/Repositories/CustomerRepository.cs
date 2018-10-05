@@ -59,7 +59,8 @@ namespace DataAccess.Repositories
                     VisaExpiredate=c.VisaExpiredate,
                     CityName=c.City.Name,
                     Gender=c.Gender,
-                    CityId = c.CityId
+                    CityId = c.CityId,
+                    Notes=c.Notes.OrderByDescending(n=>n.AddedDate).Select(n=>new NoteViewModel {Text=n.NoteText,AddDate=n.AddedDate }).ToList()
                 }).FirstOrDefaultAsync();
         }
 
@@ -77,6 +78,17 @@ namespace DataAccess.Repositories
                 DbContext.Entry(customer).State = EntityState.Modified;
                 await DbContext.SaveChangesAsync();
             }
+        }
+        public async Task AddNote(string text, int userId)
+        {
+            Note note = new Note
+            {
+                CustomerId = userId,
+                NoteText = text,
+                AddedDate=DateTime.Now
+            };
+            await DbContext.Notes.AddAsync(note);
+            await DbContext.SaveChangesAsync();
         }
     }
 }
