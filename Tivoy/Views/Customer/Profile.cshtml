@@ -1,0 +1,45 @@
+﻿@model CustomerViewModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="card">
+    <div class="card-block">
+        <div>
+            <span>Full Name:</span> <strong>@Model.FullName</strong>
+        </div>
+        <div>
+            <span>Date of Birth:</span> <strong>@Model.DisplayBirthDate</strong>
+        </div>
+        <div>
+            <span>Gender:</span> <strong>@Model.DisplayGender</strong>
+        </div>
+        <div>
+            <span>City:</span> <strong>@Model.CityName</strong>
+        </div>
+        <div>
+            <span>ID Number</span> <strong>-</strong>
+        </div>
+        <div>
+            <span>Visa Permition</span>
+            @if (Model.ActiveVisa)
+            {
+                <div class="btn-group btn-group--colors">
+                    <label class="custom-control custom-checkbox" title="@Model.VisaDaysLeft">
+                        <input type="checkbox" checked disabled class="custom-control-input" />
+                       
+                        <span class="custom-control-indicator"></span>
+                      
+                    </label>
+                </div>
+            }
+        </div>
+        <div>
+            <span>Phone Number</span> <strong>@Model.PhoneNumber</strong>
+        </div>
+        <div>
+            <span>E-mail</span> <strong>@Model.Email</strong>
+        </div>
+    </div>
+</div>
+

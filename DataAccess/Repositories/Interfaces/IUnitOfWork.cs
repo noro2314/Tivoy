@@ -7,7 +7,8 @@ namespace DataAccess.Repositories
 {
     public interface IUnitOfWork : IDisposable
     {
+        ITourRepository TourRepository { get; }
         IOrderRepository OrderRepository { get; }
-
+        ICustomerRepository CustomerRepository { get; }
     }
 }

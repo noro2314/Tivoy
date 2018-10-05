@@ -13,7 +13,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Tivoy.Models;
 using DataAccess.Models;
-
+using DataAccess.Repositories.Interfaces;
+using DataAccess.Repositories;
 namespace Tivoy
 {
     public class Startup
@@ -42,6 +43,7 @@ namespace Tivoy
                 .AddEntityFrameworkStores<DataAccess.DbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,6 +68,11 @@ namespace Tivoy
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                 name: "areas",
+                 template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+               );
+
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

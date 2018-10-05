@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using Tivoy.Models;
+using DataAccess.Models;
 
 namespace Tivoy.Areas.Identity.Pages.Account.Manage
 {
