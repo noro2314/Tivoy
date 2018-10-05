@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tivoy", "Tivoy\Tivoy.csproj", "{B38D4791-74A5-42EA-9BE2-BA4331F6561D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{4453D603-4B0E-4060-A4BA-1F8419212F4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{4453D603-4B0E-4060-A4BA-1F8419212F4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModels", "DataModels\DataModels.csproj", "{001146F0-3E18-40E3-9020-CD0CCDCEBD54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{4453D603-4B0E-4060-A4BA-1F8419212F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4453D603-4B0E-4060-A4BA-1F8419212F4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4453D603-4B0E-4060-A4BA-1F8419212F4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{001146F0-3E18-40E3-9020-CD0CCDCEBD54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{001146F0-3E18-40E3-9020-CD0CCDCEBD54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{001146F0-3E18-40E3-9020-CD0CCDCEBD54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{001146F0-3E18-40E3-9020-CD0CCDCEBD54}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
