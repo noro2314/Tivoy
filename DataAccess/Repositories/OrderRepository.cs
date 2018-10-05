@@ -25,7 +25,7 @@ namespace DataAccess.Repositories
                 StatusId = model.StatusId,
                 TourId = model.TourId
             };
-            DbContext.Orders.AddAsync(order);
+            await DbContext.Orders.AddAsync(order);
             await DbContext.SaveChangesAsync();
 
         }
@@ -34,9 +34,9 @@ namespace DataAccess.Repositories
             var orders = await (from o in DbContext.Orders
                                 select new OrderViewModel
                                 {
-                                    Id  =o.Id,
+                                    Id = o.Id,
                                     CreatedDate = o.CreatedDate,
-                                    CustomerId= o.CustomerId,
+                                    CustomerId = o.CustomerId,
                                     Note = o.Note,
                                     StatusId = o.StatusId,
                                     TourId = o.TourId

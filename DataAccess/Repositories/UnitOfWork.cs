@@ -6,7 +6,7 @@ using DataAccess.Repositories.Interfaces;
 using DataAccess.Repositories;
 namespace DataAccess.Repositories
 {
-    public class UnitOfWork: IUnitOfWork, IDisposable
+    public class UnitOfWork : IUnitOfWork, IDisposable
     {
         public UnitOfWork(DbContext dbContext)
         {
@@ -23,12 +23,13 @@ namespace DataAccess.Repositories
         }
         #region Repositories
         ITourRepository _itourRepository;
-        IOrderRepository _iorderRepository;
         ICustomerRepository _icustomerRepository;
 
         public ITourRepository TourRepository => _itourRepository ?? new TourRepository(DbContext);
-        public IOrderRepository OrderRepository => _iorderRepository ?? new OrderRepository(DbContext);
         public ICustomerRepository CustomerRepository => _icustomerRepository ?? new CustomerRepository(DbContext);
+
+        IOrderRepository _OrderRepository;
+        public IOrderRepository OrderRepository => _OrderRepository ?? (_OrderRepository = new OrderRepository(DbContext));
         #endregion
         #region Dispose
 
