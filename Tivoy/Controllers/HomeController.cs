@@ -5,22 +5,25 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using DataAccess.Models;
 using Tivoy.Models;
+using DataAccess.Repositories;
 
 namespace Tivoy.Controllers
 {
     public class HomeController : BaseController
     {
         public HomeController(UserManager<User> userManager,
-                               SignInManager<User> signInManager
-                             ) : base(userManager, signInManager)
+                               SignInManager<User> signInManager,
+                               IUnitOfWork unitOfWork
+                             ) : base(userManager, signInManager,unitOfWork)
         {
 
         }
         public IActionResult Index()
         {
             var user = new User { UserName = "test@mail.ru", Email = "test@mail.ru",FirstName = "a", LastName = "b" };
-            UserManager.CreateAsync(user);
+            //UserManager.CreateAsync(user);
             return View();
         }
 
