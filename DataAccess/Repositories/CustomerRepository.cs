@@ -59,7 +59,8 @@ namespace DataAccess.Repositories
                     VisaExpiredate=c.VisaExpiredate,
                     CityName=c.City.Name,
                     Gender=c.Gender,
-                    CityId = c.CityId
+                    CityId = c.CityId,
+                    Notes=c.Notes.OrderByDescending(n=>n.AddedDate).Select(n=>new NoteViewModel {Text=n.NoteText,AddDate=n.AddedDate }).ToList()
                 }).FirstOrDefaultAsync();
         }
 

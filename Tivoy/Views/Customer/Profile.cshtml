@@ -39,7 +39,7 @@
                             <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Personal Info</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#messages" role="tab">Notes</a>
+                            <a class="nav-link" data-toggle="tab" href="#messages" role="tab">Notes (<span id="notescount">@Model.Notes.Count</span>)</a>
                         </li>
                      
                     </ul>
@@ -98,6 +98,16 @@
                                  <button class="btn btn-success" id="addNote">Add</button>
                              </div>
                          </div>
+                         <div class="notes">
+                             @foreach (var item in Model.Notes)
+                             {
+                                 <div class="note mt-3">
+                                     <strong>@item.AddDate.ToShortDateString()</strong>
+                                     <br />@item.Text
+                                 </div>
+                             }
+                         </div>
+                          
                         </div>
                      
                     </div>
