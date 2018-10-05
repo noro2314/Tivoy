@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-
+using DataAccess.Repositories.Interfaces;
+using DataAccess.Repositories;
 namespace DataAccess.Repositories
 {
     public class UnitOfWork: IUnitOfWork, IDisposable
@@ -21,7 +22,13 @@ namespace DataAccess.Repositories
             return await DbContext.SaveChangesAsync();
         }
         #region Repositories
+        ITourRepository _itourRepository;
+        IOrderRepository _iorderRepository;
+        ICustomerRepository _icustomerRepository;
 
+        public ITourRepository TourRepository => _itourRepository ?? new TourRepository(DbContext);
+        public IOrderRepository OrderRepository => _iorderRepository ?? new OrderRepository(DbContext);
+        public ICustomerRepository CustomerRepository => _icustomerRepository ?? new CustomerRepository(DbContext);
         #endregion
         #region Dispose
 
