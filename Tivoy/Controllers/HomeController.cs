@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using DataAccess.Models;
 using Tivoy.Models;
 
 namespace Tivoy.Controllers
