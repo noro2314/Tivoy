@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.cs" />
+    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="wwwroot\material\vendors\bower_components\animate.css\animate-config.json" />
     <Content Include="wwwroot\material\vendors\bower_components\animate.css\animate.css" />
     <Content Include="wwwroot\material\vendors\bower_components\animate.css\animate.min.css" />
@@ -590,10 +595,16 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.4" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Data\Migrations\" />
+    <Folder Include="Models\ViewModels\" />
     <Folder Include="wwwroot\css\material\" />
     <Folder Include="wwwroot\material\vendors\bower_components\jquery-mask-plugin\test\" />
     <Folder Include="wwwroot\material\vendors\bower_components\jqvmap\create\output\" />
