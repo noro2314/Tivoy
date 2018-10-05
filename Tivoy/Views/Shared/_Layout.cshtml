@@ -4,9 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Tivoy</title>
- <environment include="Development">
+    <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
+        <link rel="stylesheet" href="~/material/vendors/bower_components/animate.css/animate.min.css">
+        <link rel="stylesheet" href="~/material/vendors/bower_components/jquery.scrollbar/jquery.scrollbar.css">
+        <link rel="stylesheet" href="~/material/vendors/bower_components/fullcalendar/dist/fullcalendar.min.css">
         <link rel="stylesheet" href="~/css/site.css" />
+        <link href="~/material/app.min.css" rel="stylesheet" />
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -15,43 +20,113 @@
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
 </head>
-<body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Tivoy</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
-                <partial name="_LoginPartial" />
+<body data-ma-theme="green">
+    <main class="main">
+        <div class="page-loader">
+            <div class="page-loader__spinner">
+                <svg viewBox="25 25 50 50">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+                </svg>
             </div>
         </div>
-    </nav>
+        <header class="header">
+            <div class="navigation-trigger hidden-xl-up" data-ma-action="aside-open" data-ma-target=".sidebar">
+                <div class="navigation-trigger__inner">
+                    <i class="navigation-trigger__line"></i>
+                    <i class="navigation-trigger__line"></i>
+                    <i class="navigation-trigger__line"></i>
+                </div>
+            </div>
+            <div class="header__logo hidden-sm-down">
+                <h1><a href="index.html">Tivoy</a></h1>
+            </div>
+            <form class="search">
+                <div class="search__inner">
+                    <input type="text" class="search__text" placeholder="Search for people, files, documents...">
+                    <i class="zmdi zmdi-search search__helper" data-ma-action="search-close"></i>
+                </div>
+            </form>
+            <div class="user">
+                <div class="user__info" data-toggle="dropdown">
+                    <img class="user__img" src="demo/img/profile-pics/8.jpg" alt="">
+                    <div>
+                        <div class="user__name">Malinda Hollaway</div>
+                        <div class="user__email">malinda-h@gmail.com</div>
+                    </div>
+                </div>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="">View Profile</a>
+                    <a class="dropdown-item" href="">Settings</a>
+                    <a class="dropdown-item" href="">Logout</a>
+                </div>
+            </div>
+        </header>
+        <aside class="sidebar">
+            <div class="scrollbar-inner">
+                
+                <ul class="navigation">
+                    <li class="navigation__active"><a href="index.html"><i class="zmdi zmdi-home"></i> Dashboard</a></li>
+                    
+                    <li><a asp-controller="Customer" asp-action="Index"><i class="zmdi zmdi-format-underlined"></i> Customers</a></li>
+                    <li><a href="widgets.html"><i class="zmdi zmdi-widgets"></i> Tours and activities</a></li>
+                   
+                    <li><a href="calendar.html"><i class="zmdi zmdi-calendar"></i> Orders</a></li>
+                    <li><a href="photo-gallery.html"><i class="zmdi zmdi-image"></i> Marketing</a></li>
+                    
+                </ul>
+            </div>
+        </aside>
+        <section class="content">
 
-    <partial name="_CookieConsentPartial" />
+            @RenderBody()
 
-    <div class="container body-content">
-        @RenderBody()
+
+            <footer class="footer hidden-xs-down">
+                <p>© Material Admin Responsive. All rights reserved.</p>
+                <ul class="nav footer__nav">
+                    <a class="nav-link" href="">Homepage</a>
+                    <a class="nav-link" href="">Company</a>
+                    <a class="nav-link" href="">Support</a>
+                    <a class="nav-link" href="">News</a>
+                    <a class="nav-link" href="">Contacts</a>
+                </ul>
+            </footer>
+        </section>
+    </main>
+     
+
+    
+
+    @*<div class="container body-content">
+       
         <hr />
         <footer>
             <p>&copy; 2018 - Tivoy</p>
         </footer>
-    </div>
+    </div>*@
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/material/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="~/material/vendors/bower_components/tether/dist/js/tether.min.js"></script>
+        <script src="~/material/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="~/material/vendors/bower_components/Waves/dist/waves.min.js"></script>
+        <script src="~/material/vendors/bower_components/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+        <script src="~/material/vendors/bower_components/jquery-scrollLock/jquery-scrollLock.min.js"></script>
+        <script src="~/material/vendors/bower_components/Waves/dist/waves.min.js"></script>
+        <script src="~/material/vendors/bower_components/flot/jquery.flot.js"></script>
+        <script src="~/material/vendors/bower_components/flot/jquery.flot.resize.js"></script>
+        <script src="~/material/vendors/bower_components/flot.curvedlines/curvedLines.js"></script>
+        <script src="~/material/vendors/bower_components/jqvmap/dist/jquery.vmap.min.js"></script>
+        <script src="~/material/vendors/bower_components/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+        <script src="~/material/vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+        <script src="~/material/vendors/bower_components/salvattore/dist/salvattore.min.js"></script>
+        <script src="~/material/vendors/jquery.sparkline/jquery.sparkline.min.js"></script>
+        <script src="~/material/vendors/bower_components/moment/min/moment.min.js"></script>
+        <script src="~/material/vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+        <script src="~/material/app.min.js"></script>
     </environment>
     <environment exclude="Development">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
