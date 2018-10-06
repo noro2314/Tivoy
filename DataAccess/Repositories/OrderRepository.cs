@@ -8,7 +8,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using DataAccess.Models;
 using X.PagedList;
-
+using DataModels.Enums;
 namespace DataAccess.Repositories
 {
     public class OrderRepository : BaseRepository, IOrderRepository
@@ -20,10 +20,10 @@ namespace DataAccess.Repositories
             var order = new Order
             {
                 Id = model.Id,
-                CreatedDate = model.CreatedDate,
+                CreatedDate = DateTime.Now,
                 CustomerId = model.CustomerId,
                 Note = model.Note,
-                StatusId = model.StatusId,
+                StatusId = (int)OrderStatusesEnum.Active,
                 TourId = model.TourId
             };
             await DbContext.Orders.AddAsync(order);

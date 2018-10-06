@@ -14,6 +14,7 @@ namespace DataAccess.Models
         public int Rate { get; set; }
         public string MoreInfo { get; set; }
         public byte[] ImageSize { get; set; }
+        public int Price { get; set; }
 
     }
 }

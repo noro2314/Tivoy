@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DataAccess.Models;
 using DataAccess.Repositories;
+using DataModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -46,15 +47,28 @@ namespace Tivoy.Controllers
                ? (ActionResult)PartialView("_List", orders)
                : View(orders);
         }
-        public async Task<IActionResult> Create()
+        [HttpGet]
+        public async Task<IActionResult> Create(int? Id)
         {
             var users = await UnitOfWork.CustomerRepository.GetAll();
-            ViewBag.Customers = new SelectList(users, "Id", "FullName");
+            if(Id.HasValue)
+            {
+               
+                ViewBag.isOneUser = true;
+            }
+            ViewBag.Customers = new SelectList(users, "Id", "FullName",Id);
 
             var tours = await UnitOfWork.TourRepository.GetAll();
             ViewBag.Tours = new SelectList(tours, "Id", "Name");
 
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(OrderViewModel model)
+        {
+            await UnitOfWork.OrderRepository.Add(model);
+            return RedirectToAction("Index");
         }
     }
 }

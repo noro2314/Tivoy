@@ -22,7 +22,7 @@
                     Number:  @Model.PhoneNumber
                 </div>
                 <div class="mb-2">
-                    <a href="#" class="btn btn-success">Add new order</a>
+                    <a asp-controller="Order" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-success">Add new order</a>
                 </div>
             </div>
         </div>
