@@ -18,6 +18,7 @@ namespace DataModels
         public int UserId { get; set; }
         public int OrderCount { get; set; }
         public string CityName { get; set; }
+        public string PassportIdNumber { get; set; }
         public List<NoteViewModel> Notes { get; set; }
         public string FullName => FirstName + " " + LastName;
         public bool ActiveVisa => VisaExpiredate.HasValue && VisaExpiredate.Value > DateTime.Now;

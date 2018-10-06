@@ -25,7 +25,8 @@ namespace DataAccess.Repositories
                 PhoneNumber = model.PhoneNumber,
                 VisaExpiredate = model.VisaExpiredate,
                 UserId = model.UserId,
-                Gender = model.Gender
+                Gender = model.Gender,
+                PassportIdNumber=model.PassportIdNumber,
             };
             await DbContext.Customers.AddAsync(customer);
             await DbContext.SaveChangesAsync();
@@ -60,6 +61,7 @@ namespace DataAccess.Repositories
                     CityName=c.City.Name,
                     Gender=c.Gender,
                     CityId = c.CityId,
+                    PassportIdNumber=c.PassportIdNumber,
                     Notes=c.Notes.OrderByDescending(n=>n.AddedDate).Select(n=>new NoteViewModel {Text=n.NoteText,AddDate=n.AddedDate }).ToList()
                 }).FirstOrDefaultAsync();
         }

@@ -15,6 +15,7 @@ namespace DataAccess.Models
         public DateTime? VisaExpiredate { get; set; }
         public int CityId { get; set; }
         public string PhoneNumber { get; set; }
+        public string PassportIdNumber { get; set; }
         public int? ParentCustomerId { get; set; }
         [ForeignKey("CityId")]
         public virtual City City { get; set; }
