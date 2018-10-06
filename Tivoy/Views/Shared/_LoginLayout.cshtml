@@ -22,18 +22,13 @@
     </environment>
     @*@RenderSection("header", required: false)*@
 </head>
-<body>
-    <div>
-
+<body data-ma-theme="teal">
         <div class="login-content">
             <div class="lc-block toggled">
                 @RenderBody()
             </div>
         </div>
-
-
-
-    </div>
+    
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
