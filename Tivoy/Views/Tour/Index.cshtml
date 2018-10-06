@@ -26,6 +26,9 @@
                     <div class="card-block">
                         <p>@item.Description</p>
                     </div>
+                    <div class="card-header">
+                        <button class="btn btn-link pull-right">See more</button>
+                    </div>
                     <div class="card-block">
                         @for (var i = 1; i <= item.Rate; i++)
                         {
@@ -37,7 +40,7 @@
                         }
                     </div>
                     <div class="card-block">
-                        <button class="btn btn-success">New Order</button>
+                        <a class="btn btn-success" asp-controller="Order" asp-action="Create">New Order</a>
                         <button class="btn btn-primary pull-right"><i class="zmdi zmdi-facebook-box zmdi-hc-lg"> </i> Boost on Facebook</button>
                     </div>
                 </div>
