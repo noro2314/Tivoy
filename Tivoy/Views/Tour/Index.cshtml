@@ -3,40 +3,47 @@
     ViewData["Title"] = "Index";
 }
 
-@*<header class="content__title">
-        <h1>Images</h1>
-        <small>Cards can also include images in the top and bottom.</small>
-    </header>*@
-@foreach (var item in Model)
-{
-    <div class="card-demo">
-        <div class="card">
-            <img class="card-img-top" src="~/material/img/headers/5.png">
-            <div class="card-header">
-                <h2 class="card-title">@item.Name</h2>
-                <small class="card-subtitle">@item.MoreInfo</small>
+<header class="content__title">
+    <h1>Tours and activities</h1>
+    <a asp-controller="Tour" asp-action="Add" class="btn btn-success mt-3">Add new tour package</a>
+    
+</header>
+    @*<header class="content__title">
+            <h1>Images</h1>
+            <small>Cards can also include images in the top and bottom.</small>
+        </header>*@
+<div class="row">
+    <div class="col-md-12">
+        @foreach (var item in Model)
+        {
+            <div class="card-demo col-md-6">
+                <div class="card col-md-12">
+                    <img class="card-img-top" src="~/material/img/headers/5.png">
+                    <div class="card-header">
+                        <h2 class="card-title">@item.Name</h2>
+                        <small class="card-subtitle">@item.MoreInfo</small>
+                    </div>
+                    <div class="card-block">
+                        <p>@item.Description</p>
+                    </div>
+                    <div class="card-block">
+                        @for (var i = 1; i <= item.Rate; i++)
+                        {
+                            <i class="zmdi zmdi-star zmdi-hc-3x"> </i>
+                        }
+                        @for (var i = (item.Rate + 1); i <= 5; i++)
+                        {
+                            <i class="zmdi zmdi-star-border zmdi-hc-3x"></i>
+                        }
+                    </div>
+                    <div class="card-block">
+                        <button class="btn btn-success">New Order</button>
+                        <button class="btn btn-primary pull-right"><i class="zmdi zmdi-facebook-box zmdi-hc-lg"> </i> Boost on Facebook</button>
+                    </div>
+                </div>
             </div>
-            <div class="card-block">
-                <p>@item.Description</p>
-            </div>            
-            <div class="card-block">                
-                @for (var i = 1; i <= item.Rate; i++)
-                {
-                    <i class="zmdi zmdi-star zmdi-hc-3x"> </i>
-                }
-                @for (var i = (item.Rate + 1); i <= 5; i++)
-                {
-                    <i class="zmdi zmdi-star-border zmdi-hc-3x"></i>
-                }
-            </div>
-            <div class="card-block">
-                <button class="btn btn-success">New Order</button>
-            <button class="btn btn-primary pull-right"><i class="zmdi zmdi-facebook-box zmdi-hc-lg"> </i> Boost on Facebook</button>
-            </div>
+        }
         </div>
     </div>
-   
-}
-
 
 

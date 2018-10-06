@@ -26,32 +26,35 @@ namespace Tivoy.Controllers
             return View(tours);
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> Add(int? id)
-        //{
-        //    var model = id.HasValue ? await UnitOfWork.TourRepository.GetById(id.Value) : new TourViewModel();
-        //    return View(model);
-        //}
+        [HttpGet]
+        public async Task<IActionResult> Add(int? id)
+        {
+            var model = id.HasValue ? await UnitOfWork.TourRepository.GetById(id.Value) : new TourViewModel();
+            return View(model);
+        }
 
-        //[HttpPost]
-        //public async Task<IActionResult> Add(TourViewModel model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            var tour = await UnitOfWork.TourRepository.Add(model);
-        //            return Json(new { success = true });
+        [HttpPost]
+        public async Task<IActionResult> Add(TourViewModel model)
+        {
 
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            ModelState.AddModelError("", e.Message);
-        //        }
-        //    }
 
-        //    //if Model not Valid or error occurred            
-        //    return PartialView("_Create", model);
-        //}
+            try
+            {
+                if (ModelState.IsValid)
+                {
+
+
+                    await UnitOfWork.TourRepository.Add(model);
+                    return Json(new {sucess=true });
+                }
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError("", e.Message);
+
+            }
+            return View("Add", model);
+
+        }
     }
 }

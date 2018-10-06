@@ -9,6 +9,6 @@ namespace DataAccess.Repositories.Interfaces
     {
         Task<List<TourViewModel>> GetAll();
         Task<TourViewModel> GetById(int Id);
-        Task Add(TourViewModel model)
+        Task Add(TourViewModel model);
     }
 }

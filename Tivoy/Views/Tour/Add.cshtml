@@ -1,0 +1,33 @@
+﻿@model DataModels.TourViewModel
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-block">
+        <form asp-controller="Tour" asp-action="Add" method="post">
+            <div class="form-group">
+                <label asp-for="Name"> Name</label>
+                <input type="text" asp-for="Name" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MoreInfo">More Info</label>
+                <input type="text" asp-for="MoreInfo" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Description">Description</label>
+                <input type="text" asp-for="Description" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Rate">Rate</label>
+                <input type="text" asp-for="Rate" class="form-control" />
+            </div>            
+            <button type="submit" value="Add" class="btn btn-success ">Add</button>
+        </form>
+    </div>
+
+</div>
+
