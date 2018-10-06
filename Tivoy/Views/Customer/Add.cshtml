@@ -48,12 +48,13 @@
                 <label asp-for="CityId">City</label>
                 <select asp-for="CityId" class="form-control">
                     <option>Please select</option>
-                    <option value="1">Yerevan</option>
-                    <option value="2">Vanadzor</option>
-                    <option value="3">Gyumri</option>
+                    <option value="1">London</option>
+                    <option value="2">Madrid</option>
+                    <option value="3">Rome</option>
                 </select>
             </div>
-            <input type="submit" value="@buttonText" class="btn btn-success" />
+            <button class="btn btn-success pull-right" type="button">+</button>
+            <br /><button type="submit" class="btn btn-success">@buttonText</button>
         </form>
     </div>
     

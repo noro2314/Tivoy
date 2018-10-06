@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    var controller = ViewContext.RouteData.Values["Controller"].ToString();
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -79,12 +82,12 @@
             <div class="scrollbar-inner">
 
                 <ul class="navigation">
-                    <li class="navigation__active"><a href="index.html"><i class="zmdi zmdi-home"></i> Dashboard</a></li>
+                    <li><a href="index.html"><i class="zmdi zmdi-home"></i> Dashboard</a></li>
 
-                    <li><a asp-controller="Customer" asp-action="Index"><i class="zmdi zmdi-format-underlined"></i> Customers</a></li>
-                    <li><a asp-controller="Tour" asp-action="Index"><i class="zmdi zmdi-widgets"></i> Tours and activities</a></li>
+                    <li class="@(controller=="Customer"?"navigation__active":null)"><a asp-controller="Customer" asp-action="Index"><i class="zmdi zmdi-format-underlined"></i> Customers</a></li>
+                    <li class="@(controller=="Tour"?"navigation__active":null)"><a asp-controller="Tour" asp-action="Index"><i class="zmdi zmdi-widgets"></i> Tours and activities</a></li>
 
-                    <li><a asp-action="Index" asp-controller="Order"><i class="zmdi zmdi-calendar"></i> Orders</a></li>
+                    <li class="@(controller=="Order"?"navigation__active":null)"><a asp-action="Index" asp-controller="Order"><i class="zmdi zmdi-calendar"></i> Orders</a></li>
                     <li><a href="photo-gallery.html"><i class="zmdi zmdi-image"></i> Marketing</a></li>
 
                 </ul>

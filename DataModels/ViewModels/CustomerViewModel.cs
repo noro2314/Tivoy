@@ -20,6 +20,7 @@ namespace DataModels
         public string CityName { get; set; }
         public string PassportIdNumber { get; set; }
         public List<NoteViewModel> Notes { get; set; }
+        public List<OrderViewModel> Orders { get; set; }
         public string FullName => FirstName + " " + LastName;
         public bool ActiveVisa => VisaExpiredate.HasValue && VisaExpiredate.Value > DateTime.Now;
         public string DisplayBirthDate => BirthDate.HasValue? BirthDate.Value.ToShortDateString():"-";

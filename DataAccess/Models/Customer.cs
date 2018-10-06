@@ -23,6 +23,7 @@ namespace DataAccess.Models
         [ForeignKey("UserId")]
         public virtual User User { get; set; }
         public virtual ICollection<Note> Notes { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
 
     }
 }

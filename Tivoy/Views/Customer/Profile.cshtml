@@ -1,4 +1,6 @@
-﻿@model CustomerViewModel
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@model CustomerViewModel
 @{
     ViewData["Title"] = "Profile";
 }
@@ -11,7 +13,7 @@
                     @Model.FullName
                 </div>
                 <div class="mb-2">
-                    Orders: @Model.OrderCount
+                    Orders: @Model.Orders.Count
                 </div>
                 <div class="mb-2">
                     E-mail:  @Model.Email
@@ -24,10 +26,10 @@
                 </div>
             </div>
         </div>
-       
+
     </div>
     <div class="col-md-8">
-       
+
         <div class="card">
             <div class="card-block">
                 <div class="tab-container">
@@ -41,11 +43,14 @@
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#messages" role="tab">Notes (<span id="notescount">@Model.Notes.Count</span>)</a>
                         </li>
-                     
+
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active fade show" id="home" role="tabpanel">
-                  
+                            @if (Model.Orders.Any())
+                            {
+                                @await Html.PartialAsync("~/Views/Order/_List.cshtml", Model.Orders.ToPagedList())
+                            }
                         </div>
                         <div class="tab-pane fade" id="profile" role="tabpanel">
                             <div class="card-block">
@@ -87,41 +92,41 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="messages" role="tabpanel">
-                         <div class="row">
-                             <div class="col-md-8">
-                                 <input type="hidden" value="@Model.Id" id="customerId" />
-                                 <textarea class="form-control" id="noteText">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <input type="hidden" value="@Model.Id" id="customerId" />
+                                    <textarea class="form-control" id="noteText">
 
 </textarea>
-                             </div>
-                             <div class="col-md-4">
-                                 <button class="btn btn-success" id="addNote">Add</button>
-                             </div>
-                         </div>
-                         <div class="notes">
-                             @foreach (var item in Model.Notes)
-                             {
-                                 <div class="note mt-3">
-                                     <strong>@item.AddDate.ToShortDateString()</strong>
-                                     <br />@item.Text
-                                 </div>
-                             }
-                         </div>
-                          
+                                </div>
+                                <div class="col-md-4">
+                                    <button class="btn btn-success" id="addNote">Add</button>
+                                </div>
+                            </div>
+                            <div class="notes">
+                                @foreach (var item in Model.Notes)
+                                {
+                                    <div class="note mt-3">
+                                        <strong>@item.AddDate.ToShortDateString()</strong>
+                                        <br />@item.Text
+                                    </div>
+                                }
+                            </div>
+
                         </div>
-                     
+
                     </div>
                 </div>
             </div>
         </div>
-        
+
     </div>
 </div>
 
 
-@section Scripts{ 
+@section Scripts{
     <script>
 var noteUrl="@Url.Action("AddNote")";
     </script>
-    
+
 }
