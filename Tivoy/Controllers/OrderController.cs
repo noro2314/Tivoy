@@ -41,7 +41,7 @@ namespace Tivoy.Controllers
 
             page = page ?? 1;
 
-            var orders = await UnitOfWork.OrderRepository.GetAllPagedList(page.Value,pSize,searchString);
+            var orders = await UnitOfWork.OrderRepository.GetAllPagedList(page.Value, pSize, searchString);
             return Request.IsAjaxRequest()
                ? (ActionResult)PartialView("_List", orders)
                : View(orders);
@@ -51,8 +51,8 @@ namespace Tivoy.Controllers
             var users = await UnitOfWork.CustomerRepository.GetAll();
             ViewBag.Customers = new SelectList(users, "Id", "FullName");
 
-            //var tours = await UnitOfWork.TourRepository.GetAll();
-            //ViewBag.Tours = new SelectList(tours,)
+            var tours = await UnitOfWork.TourRepository.GetAll();
+            ViewBag.Tours = new SelectList(tours, "Id", "Name");
 
             return View();
         }
