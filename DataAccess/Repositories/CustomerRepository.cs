@@ -64,7 +64,7 @@ namespace DataAccess.Repositories
                     CityId = c.CityId,
                     PassportIdNumber=c.PassportIdNumber,
                     Notes=c.Notes.OrderByDescending(n=>n.AddedDate).Select(n=>new NoteViewModel {Text=n.NoteText,AddDate=n.AddedDate }).ToList(),
-                    Orders=c.Orders.Select(o=>new OrderViewModel {Id=o.Id,CreatedDate=o.CreatedDate,StatusId=o.StatusId}).ToList()
+                    Orders=c.Orders.Select(o=>new OrderViewModel {Id=o.Id,CreatedDate=o.CreatedDate,StatusId=o.StatusId,TourPrice=o.Tour.Price,TourName=o.Tour.Name}).ToList()
                 }).FirstOrDefaultAsync();
         }
 

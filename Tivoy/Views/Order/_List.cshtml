@@ -5,7 +5,11 @@
     <thead>
         <tr>
             <th>Order Id</th>
-            <th>Customer</th>
+            @if (Model.Any(m => m.CustomerName != null))
+            {
+                <th>Customer</th>
+            }
+
             <th>Price</th>
             <th>
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">Order Date</a>
@@ -27,10 +31,14 @@
                 <td onclick="location.href='@Url.Action("Order","Order",new { Id=item.Id})'" class="forHover">
                     <p>#@item.Id.ToString("000000")</p>
                 </td>
+                @if(item.CustomerName!=null)
+                {
                 <td>
                     @item.CustomerName
                 </td>
-                <td>@item.TourPrice</td>
+                }
+                
+                <td>@item.TourPrice $</td>
                 <td>@item.CreatedDate</td>
                 <td>
                     @if (item.StatusId == (int)DataModels.Enums.OrderStatusesEnum.Active)
@@ -47,13 +55,11 @@
                     }
                 </td>
                 <td>
-                    @if (item.TourId.HasValue)
-                    {
+                   
                         <span>
                             @item.TourName
                         </span>
-                    }
-
+                   
                 </td>
             </tr>
         }
