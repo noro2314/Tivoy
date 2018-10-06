@@ -26,7 +26,9 @@ namespace DataAccess.Repositories
                                    Description = tr.Description,
                                    MoreInfo = tr.MoreInfo,
                                    Review = tr.Review,
-                                   Image=tr.Image
+                                   Image=tr.Image,
+                                   Price=tr.Price
+                                   
                                }).ToListAsync();
             return items;
         }
@@ -42,7 +44,8 @@ namespace DataAccess.Repositories
                     Description = c.Description,
                     MoreInfo = c.MoreInfo,
                     Review = c.Review,
-                    Image = c.Image
+                    Image = c.Image,
+                    Price=c.Price
                 }).FirstOrDefaultAsync();
         }
 
@@ -55,7 +58,8 @@ namespace DataAccess.Repositories
                 Description = model.Description,
                 Rate = model.Rate,
                 MoreInfo = model.MoreInfo,
-                Image = model.Image              
+                Image = model.Image,
+                Price=model.Price
                 
             };
             await DbContext.Tours.AddAsync(tour);
