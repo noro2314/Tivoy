@@ -19,7 +19,7 @@ namespace DataAccess.Repositories
         {
             var order = new Order
             {
-                Id = model.Id,
+               
                 CreatedDate = DateTime.Now,
                 CustomerId = model.CustomerId,
                 Note = model.Note,
