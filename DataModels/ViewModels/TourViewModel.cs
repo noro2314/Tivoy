@@ -13,6 +13,7 @@ namespace DataModels
         public double? Review { get; set; }
         public int Rate { get; set; }
         public string MoreInfo { get; set; }
+        public int Price { get; set; }
 
     }
 }
