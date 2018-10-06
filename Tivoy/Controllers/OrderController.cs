@@ -48,7 +48,7 @@ namespace Tivoy.Controllers
                : View(orders);
         }
         [HttpGet]
-        public async Task<IActionResult> Create(int? Id)
+        public async Task<IActionResult> Create(int? Id,int? tourId)
         {
             var users = await UnitOfWork.CustomerRepository.GetAll();
             if(Id.HasValue)
@@ -59,7 +59,7 @@ namespace Tivoy.Controllers
             ViewBag.Customers = new SelectList(users, "Id", "FullName",Id);
 
             var tours = await UnitOfWork.TourRepository.GetAll();
-            ViewBag.Tours = new SelectList(tours, "Id", "Name");
+            ViewBag.Tours = new SelectList(tours, "Id", "Name",tourId);
 
             return View();
         }

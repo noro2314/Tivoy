@@ -42,10 +42,8 @@ namespace Tivoy.Controllers
             {
                 if (ModelState.IsValid)
                 {
-
-
                     await UnitOfWork.TourRepository.Add(model);
-                    return Json(new {sucess=true });
+                    return RedirectToAction("Index");
                 }
             }
             catch (Exception e)
