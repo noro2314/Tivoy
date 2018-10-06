@@ -1,28 +1,34 @@
-﻿
+﻿@model OrderViewModel
 @{
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
+<h2>Create Order</h2>
 
-<div class="card">
-    <div class="card-header">
-        <div class="col-md-12">
-            <div class="col-md-4">
-                <div class="form-group form-group--float">
-                    <select type="text" class="form-control" asp-items="(SelectList)ViewBag.Customers">
-                        <option>Select Customer</option>
-                    </select>
+<form asp-action="Create" asp-controller="Create" method="post">
+    <div class="card">
+        <div class="card-header">
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    <div class="form-group form-group--float">
+                        <select type="text" class="form-control" asp-items="(SelectList)ViewBag.Customers">
+                            <option>Select Customer</option>
+                        </select>
 
-                    <i class="form-group__bar"></i>
-                </div>
-                <div class="form-group form-group--float">
-                    <select type="text" class="form-control" asp-items="(SelectList)ViewBag.Tours">
-                        <option>Select Tour</option>
-                    </select>
-                    <i class="form-group__bar"></i>
+                        <i class="form-group__bar"></i>
+                    </div>
+                    <div class="form-group form-group--float">
+                        <select type="text" class="form-control" asp-items="(SelectList)ViewBag.Tours">
+                            <option>Select Tour</option>
+                        </select>
+                        <i class="form-group__bar"></i>
+                    </div>
+                  
+                    <div class="form-group form-group--float">
+                        <button type="button" class="btn btn-success">Confirm</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</form>

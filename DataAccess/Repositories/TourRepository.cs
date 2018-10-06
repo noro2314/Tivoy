@@ -55,11 +55,11 @@ namespace DataAccess.Repositories
                 Description = model.Description,
                 Rate = model.Rate,
                 MoreInfo = model.MoreInfo,
-                Image = model.Image               
+                Image = model.Image              
                 
             };
             await DbContext.Tours.AddAsync(tour);
-            await DbContext.SaveChangesAsync();
+            await DbContext.SaveChangesAsync();            
 
         }
     }
