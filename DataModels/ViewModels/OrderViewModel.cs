@@ -14,5 +14,6 @@ namespace DataModels
         public int? TourId { get; set; }
         public string CustomerName { get; set; }
         public string TourName { get; set; }
+        public int TourPrice { get; set; }
     }
 }

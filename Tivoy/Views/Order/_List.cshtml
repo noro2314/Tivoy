@@ -6,6 +6,7 @@
         <tr>
             <th>Order Id</th>
             <th>Customer</th>
+            <th>Price</th>
             <th>
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">Order Date</a>
             </th>
@@ -29,6 +30,7 @@
                 <td>
                     @item.CustomerName
                 </td>
+                <td>@item.TourPrice</td>
                 <td>@item.CreatedDate</td>
                 <td>
                     @if (item.StatusId == (int)DataModels.Enums.OrderStatusesEnum.Active)

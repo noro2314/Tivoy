@@ -59,6 +59,7 @@ namespace DataAccess.Repositories
                                     StatusId = o.StatusId,
                                     TourId = o.TourId,
                                     TourName = o.TourId.HasValue ? o.Tour.Name : "",
+                                    TourPrice=o.Tour.Price
                                 }).ToPagedListAsync(pageNumber, pageSize);
             return orders;
         }
