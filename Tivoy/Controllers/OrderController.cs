@@ -6,6 +6,7 @@ using DataAccess.Models;
 using DataAccess.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using X.PagedList;
 
 namespace Tivoy.Controllers
@@ -44,6 +45,16 @@ namespace Tivoy.Controllers
             return Request.IsAjaxRequest()
                ? (ActionResult)PartialView("_List", orders)
                : View(orders);
+        }
+        public async Task<IActionResult> Create()
+        {
+            var users = await UnitOfWork.CustomerRepository.GetAll();
+            ViewBag.Customers = new SelectList(users, "Id", "FullName");
+
+            //var tours = await UnitOfWork.TourRepository.GetAll();
+            //ViewBag.Tours = new SelectList(tours,)
+
+            return View();
         }
     }
 }
