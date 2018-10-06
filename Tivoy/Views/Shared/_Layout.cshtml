@@ -47,12 +47,22 @@
                 <h1><a href="index.html">Tivoy</a></h1>
             </div>
 
-            <form class="search">
-                <div class="search__inner col-md-8">
+            <form class="search col-md-8">
+                <div class="search__inner col-md-10">
                     <input type="text" class="search__text" placeholder="Search for people, files, documents...">
                     <i class="zmdi zmdi-search search__helper" data-ma-action="search-close"></i>
                 </div>
             </form>
+
+            <ul class="top-nav  col-md-2">                
+                <li class="nav-item ">
+                    <a  asp-controller="Order" asp-action="Create" class="btn btn-primary" id="buttonLink">Add new order</a>
+
+                </li>
+
+
+
+            </ul>
 
             <ul class="top-nav">
                 <li class="hidden-xl-up"><a href="" data-ma-action="search-open"><i class="zmdi zmdi-search"></i></a></li>
